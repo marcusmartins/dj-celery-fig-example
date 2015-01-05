@@ -1,5 +1,9 @@
 db:
   image: postgres
+mq:
+  image: dockerfile/rabbitmq
+  ports:
+    - "15672:15672"
 web:
   build: .
   command: python manage.py runserver 0.0.0.0:8000
@@ -9,3 +13,14 @@ web:
     - "8000:8000"
   links:
     - db
+    - mq
+worker:
+  build: .
+  command: celery -A example worker -l info -E
+  volumes:
+    - .:/code
+  links:
+    - db
+    - mq
+  environment:
+    - C_FORCE_ROOT="true"
