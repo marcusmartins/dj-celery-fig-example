@@ -1,4 +1,5 @@
-Django==1.7.1
+Django==1.6.8
 psycopg2==2.5.4
+-e git+http://github.com/kencochrane/django-defender.git@add_celery#egg=django_defender-dev
 celery==3.1.17
 librabbitmq==1.6.1

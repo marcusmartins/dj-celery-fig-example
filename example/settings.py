@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'defender',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -43,7 +44,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -87,3 +87,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 BROKER_URL = 'amqp://guest:guest@mq:5672//'
+
+DEFENDER_USE_CELERY = True
+
+DEFENDER_REDIS_URL = "redis://redis:6379/0"
