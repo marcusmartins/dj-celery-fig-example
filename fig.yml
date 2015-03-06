@@ -1,7 +1,7 @@
 db:
   image: postgres
 mq:
-  image: dockerfile/rabbitmq
+  image: rabbitmq
   ports:
     - "15672:15672"
 web:
